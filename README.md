@@ -8,7 +8,7 @@ This project showcases precision, military-grade aesthetic, subtle animations, r
 
 ## 📸 Screenshots
 
-> Replace the image paths with your actual screenshot filenames inside the `screenshots/` folder.
+
 
 ### 🖼️ **Hero**
 ![Screenshot 1](ss.png)
