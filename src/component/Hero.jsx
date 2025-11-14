@@ -3,10 +3,8 @@ import bgVideo from "../assets/bgVideo.mp4";
 import Button from "../common/Button";
 
 const Hero = () => {
- const titleLines = React.useMemo(
-  () => ["AUTONOMOUS", "UAV", "SYSTEMS"],
-  []
-);
+const titleLines = useMemo(() => ["AUTONOMOUS", "UAV", "SYSTEMS"], []);
+
 
   const [displayText, setDisplayText] = useState(
     titleLines.map(line => Array(line.length).fill(""))
