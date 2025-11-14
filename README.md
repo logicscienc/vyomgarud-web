@@ -4,6 +4,18 @@
 A modern, dark-themed, futuristic landing page built for **VyomGarud**, a UAV / autonomous drone systems company.  
 This project showcases precision, military-grade aesthetic, subtle animations, responsive design, and clean component structure.
 
+### 📦 Tech Stack Used
+
+| Technology | Purpose |
+|-----------|---------|
+| **React.js** | Building the UI using components and JSX |
+| **Tailwind CSS** | Styling, layout, responsive design |
+| **Framer Motion** | Smooth animations, transitions, scroll effects |
+| **React Icons** | Icons for social links and UI elements |
+| **Custom CSS** | Cursor effects, glitch text animation, glassmorphism |
+| **Google Fonts – Poppins** | Primary font family used across the website |
+
+
 ---
 
 ## 📸 Screenshots
