@@ -19,7 +19,7 @@ This project showcases precision, military-grade aesthetic, subtle animations, r
 
 ## 🌐 Live Demo  
 👉 *https://profound-melomakarona-132cb9.netlify.app/*  
-Otherwise ignore this section.
+
 
 ---
 
