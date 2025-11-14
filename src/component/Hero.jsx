@@ -1,9 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,  useMemo  } from "react";
 import bgVideo from "../assets/bgVideo.mp4";
 import Button from "../common/Button";
 
 const Hero = () => {
-  const titleLines = ["AUTONOMOUS", "UAV", "SYSTEMS"];
+ const titleLines = React.useMemo(
+  () => ["AUTONOMOUS", "UAV", "SYSTEMS"],
+  []
+);
+
   const [displayText, setDisplayText] = useState(
     titleLines.map(line => Array(line.length).fill(""))
   );
