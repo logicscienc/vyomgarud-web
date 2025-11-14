@@ -17,8 +17,7 @@ This project showcases precision, military-grade aesthetic, subtle animations, r
 
 ---
 
-## 🌐 Live Demo 
-If deployed:  
+## 🌐 Live Demo  
 👉 *https://profound-melomakarona-132cb9.netlify.app/*  
 Otherwise ignore this section.
 
@@ -64,7 +63,7 @@ The website includes:
 - Dark futuristic text style  
 
 ### 🔹 **4. Capabilities Section**
-- 3–4 cards with icons/videos  
+- 3 cards with icons/videos  
 - Hover tilting animation  
 - Responsive grid  
 
