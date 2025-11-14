@@ -75,7 +75,7 @@ const Hero = () => {
   
     clearInterval();
   };
-}, []);
+}, [titleLines]);
 
 
   // Cursor effect
