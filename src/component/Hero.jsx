@@ -12,49 +12,71 @@ const Hero = () => {
 
   // Blinking Text Animation
   useEffect(() => {
-    let currentText = titleLines.map(line => Array(line.length).fill(""));
-    let remainingIndices = titleLines.map(line => line.split("").map((_, i) => i));
-    let lineIndex = 0;
+  let currentText = titleLines.map(line => Array(line.length).fill(""));
+  let remainingIndices = titleLines.map(line => line.split("").map((_, i) => i));
+  let lineIndex = 0;
 
-    const animateLine = () => {
-      if (lineIndex >= titleLines.length) {
-        setShowButton(true);
+  const animateLine = () => {
+    if (lineIndex >= titleLines.length) {
+      setShowButton(true);
+      return;
+    }
+
+    let lineRemaining = [...remainingIndices[lineIndex]];
+
+    const interval = setInterval(() => {
+      if (lineRemaining.length === 0) {
+        clearInterval(interval);
+        lineIndex++;
+        animateLine();
         return;
       }
 
-      let lineRemaining = [...remainingIndices[lineIndex]];
-      const interval = setInterval(() => {
-        if (lineRemaining.length === 0) {
-          clearInterval(interval);
-          lineIndex++;
-          animateLine();
+      const randIndex = Math.floor(Math.random() * lineRemaining.length);
+      const letterIndex = lineRemaining[randIndex];
+
+      
+      if (!currentText[lineIndex] || currentText[lineIndex][letterIndex] === undefined) {
+        clearInterval(interval);
+        return;
+      }
+
+      let flashes = 3;
+
+      const flashInterval = setInterval(() => {
+
+        if (!currentText[lineIndex] || currentText[lineIndex][letterIndex] === undefined) {
+          clearInterval(flashInterval);
           return;
         }
 
-        const randIndex = Math.floor(Math.random() * lineRemaining.length);
-        const letterIndex = lineRemaining[randIndex];
+        currentText[lineIndex][letterIndex] =
+          Math.random() > 0.5
+            ? titleLines[lineIndex][letterIndex]
+            : String.fromCharCode(33 + Math.floor(Math.random() * 94));
 
-        let flashes = 3;
-        const flashInterval = setInterval(() => {
-          currentText[lineIndex][letterIndex] =
-            Math.random() > 0.5
-              ? titleLines[lineIndex][letterIndex]
-              : String.fromCharCode(33 + Math.floor(Math.random() * 94));
+        setDisplayText(currentText.map(line => [...line]));
+        flashes--;
+
+        if (flashes <= 0) {
+          clearInterval(flashInterval);
+          currentText[lineIndex][letterIndex] = titleLines[lineIndex][letterIndex];
           setDisplayText(currentText.map(line => [...line]));
-          flashes--;
-          if (flashes <= 0) {
-            clearInterval(flashInterval);
-            currentText[lineIndex][letterIndex] = titleLines[lineIndex][letterIndex];
-            setDisplayText(currentText.map(line => [...line]));
-          }
-        }, 100);
+        }
+      }, 100);
 
-        lineRemaining.splice(randIndex, 1);
-      }, 200);
-    };
+      lineRemaining.splice(randIndex, 1);
+    }, 200);
+  };
 
-    animateLine();
-  }, []);
+  animateLine();
+
+  return () => {
+  
+    clearInterval();
+  };
+}, []);
+
 
   // Cursor effect
   useEffect(() => {
@@ -72,7 +94,7 @@ const Hero = () => {
     >
       {/* Background Video */}
       <video
-        className="absolute top-0 left-0 w-full h-full object-cover"
+        className="absolute top-0 left-0 w-full h-screen object-cover"
         src={bgVideo}
         autoPlay
         muted

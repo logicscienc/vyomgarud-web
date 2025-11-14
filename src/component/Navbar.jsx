@@ -6,6 +6,14 @@ import Button from "../common/Button";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
+  const scrollToHero = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+};
+
+
   return (
     <>
       <nav className="fixed top-0 w-full bg-white/20 backdrop-blur-md shadow-md z-50">
@@ -13,12 +21,21 @@ const Navbar = () => {
           {/* Logo */}
           <div className="flex flex-col items-center">
             <img src={drone} alt="VyomGarud Logo" className="h-10 w-10 mb-1" />
-            <span className="text-white font-bold text-lg">VyomGarud</span>
+              <span className="text-white font-bold text-lg tracking-wide">
+            Vyom<span className="text-orange-500">Garud</span>
+          </span>
           </div>
 
           {/* Desktop Nav items */}
           <ul className="hidden md:flex space-x-6 text-white font-medium">
-            <li><a href="#hero" className="hover:text-orange-500 transition">Hero</a></li>
+            {/* <li><a href="#hero" className="hover:text-orange-500 transition">Hero</a></li> */}
+            <li 
+  onClick={scrollToHero} 
+  className="cursor-pointer hover:text-orange-500 transition"
+>
+  Hero
+</li>
+
             <li><a href="#about" className="hover:text-orange-500 transition">About</a></li>
             <li><a href="#capabilities" className="hover:text-orange-500 transition">Capabilities</a></li>
             <li><a href="#highlights" className="hover:text-orange-500 transition">Highlights</a></li>

@@ -22,7 +22,6 @@
   z-index: 9999;
 }
 
-/* Optional: hide default cursor */
-body {
-  cursor: none;
+body{
+    cursor: none;
 }
